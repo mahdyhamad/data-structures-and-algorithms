@@ -33,7 +33,7 @@ class DFS:
             print(node.val)
             for i in node.children:
                 if i not in visisted_nodes:
-                    DFS._dfs(i)
+                    DFS._dfs(i, visisted_nodes)
 
 
 if __name__ == '__main__':
