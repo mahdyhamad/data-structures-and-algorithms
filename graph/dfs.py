@@ -23,14 +23,17 @@ class DFS:
 
     @staticmethod
     def run(start_node: Node):
-        DFS._dfs(start_node)
+        visited_nodes = set()
+        DFS._dfs(start_node, visited_nodes)
     
     @staticmethod
-    def _dfs(node: Node):
+    def _dfs(node: Node, visisted_nodes):
         if node:
+            visisted_nodes.add(node)
             print(node.val)
             for i in node.children:
-                DFS._dfs(i)
+                if i not in visisted_nodes:
+                    DFS._dfs(i)
 
 
 if __name__ == '__main__':
