@@ -24,6 +24,7 @@ class BFS:
     
     @classmethod
     def run(cls, start_node: Node):
+        visisted_nodes = set()
         queue = list()
         # starts from the first row and col
         queue.append(start_node)
@@ -31,10 +32,12 @@ class BFS:
         while len(queue) != 0:
             # pop the top of the queue
             node = queue.pop(0)
+            visisted_nodes.add(node)
             print(node.val)
             # add its children to the queue
             for i in node.children:
-                queue.append(i)
+                if i not in visisted_nodes:
+                    queue.append(i)
 
 
 if __name__ == '__main__':
